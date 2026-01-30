@@ -5,6 +5,8 @@ readonly zigDefaultCpuFlag=@zig_default_cpu_flag@
 readonly zigDefaultOptimizeFlag=@zig_default_optimize_flag@
 
 function zigSetGlobalCacheDir {
+  if [ "${IN_NIX_SHELL-}" = impure ]; then return 0; fi
+
   ZIG_GLOBAL_CACHE_DIR=$(mktemp -d)
   export ZIG_GLOBAL_CACHE_DIR
 }
