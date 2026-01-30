@@ -31,12 +31,6 @@ let
 
       pname = "zig";
       src = pkgs.fetchurl { inherit urls sha256; };
-      # dontConfigure = true;
-      # dontBuild = true;
-      # dontFixup = true;
-      preBuild = ''
-        export ZIG_GLOBAL_CACHE_DIR="$TMPDIR/zig-cache";
-      '';
       strictDeps = true;
 
       installPhase = ''
